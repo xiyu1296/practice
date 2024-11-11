@@ -1,9 +1,15 @@
 package multiproceed.abstacts_class.usr;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 // 档案录入人员类
-public class Operator extends user {
+public class Operator extends User {
+    private static final int OPERATOR_PERMISSION = 1;
+
     public Operator(String username, String password) {
-        super(username, password,1);
+        super(username, password, OPERATOR_PERMISSION);
+
     }
 
 
