@@ -15,15 +15,24 @@
         <option value="$PROJECT_DIR$/webprac/pom.xml" />
         <option value="$PROJECT_DIR$/demo1/pom.xml" />
         <option value="$PROJECT_DIR$/webdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/../work/pom.xml" />
+        <option value="$PROJECT_DIR$/xiyu_produce/pom.xml" />
+        <option value="$PROJECT_DIR$/xiyu_work/pom.xml" />
+        <option value="$PROJECT_DIR$/xiyu_practice/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/demo1/pom.xml" />
         <option value="$PROJECT_DIR$/javawebproduce/pom.xml" />
+        <option value="$PROJECT_DIR$/javawork/pom.xml" />
+        <option value="$PROJECT_DIR$/practice/pom.xml" />
+        <option value="$PROJECT_DIR$/produce/pom.xml" />
+        <option value="$PROJECT_DIR$/webdemo/pom.xml" />
         <option value="$PROJECT_DIR$/webprac/pom.xml" />
         <option value="$PROJECT_DIR$/webpractice/pom.xml" />
         <option value="$PROJECT_DIR$/webproduce/pom.xml" />
+        <option value="$PROJECT_DIR$/../work/pom.xml" />
       </set>
     </option>
   </component>
