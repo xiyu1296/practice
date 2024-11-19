@@ -1,6 +1,7 @@
-package com.example.demo.service.interface01;
+package fencengjieou_demo.service.interface01;
 
-import com.example.demo.user;
+
+import fencengjieou_demo.user;
 
 import java.util.List;
 
