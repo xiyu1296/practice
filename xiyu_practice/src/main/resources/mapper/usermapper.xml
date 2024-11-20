@@ -1,0 +1,22 @@
+<!--xml映射配置-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jdbcwork.usermapper">
+    <update id="updateuser" parameterType="jdbcwork.user">
+        update books set name=#{name},price=#{price},author=#{author},publish_date=#{publish_date},type=#{type} where id=#{id}
+    </update>
+
+    <delete id="deleteuser" parameterType="java.lang.String">
+        delete from books where name=#{name}
+    </delete>
+
+    <select id="findall" resultType="jdbcwork.user">
+        select * from books
+    </select>
+
+    <insert id="adduser" parameterType="jdbcwork.user">
+        insert into books ( name, price, author, publish_date, type) value (#{name},#{price},#{author},#{publish_date},#{type})
+    </insert>
+
+</mapper>
