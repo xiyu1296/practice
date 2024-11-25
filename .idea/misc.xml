@@ -19,6 +19,8 @@
         <option value="$PROJECT_DIR$/xiyu_produce/pom.xml" />
         <option value="$PROJECT_DIR$/xiyu_work/pom.xml" />
         <option value="$PROJECT_DIR$/xiyu_practice/pom.xml" />
+        <option value="$PROJECT_DIR$/tlias_produce/pom.xml" />
+        <option value="$PROJECT_DIR$/tlias/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -28,6 +30,7 @@
         <option value="$PROJECT_DIR$/javawork/pom.xml" />
         <option value="$PROJECT_DIR$/practice/pom.xml" />
         <option value="$PROJECT_DIR$/produce/pom.xml" />
+        <option value="$PROJECT_DIR$/tlias_produce/pom.xml" />
         <option value="$PROJECT_DIR$/webdemo/pom.xml" />
         <option value="$PROJECT_DIR$/webprac/pom.xml" />
         <option value="$PROJECT_DIR$/webpractice/pom.xml" />

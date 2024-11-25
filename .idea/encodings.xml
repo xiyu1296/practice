@@ -3,6 +3,8 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tlias/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tlias_produce/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiyu_practice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiyu_produce/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiyu_work/src/main/java" charset="UTF-8" />
