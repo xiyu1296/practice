@@ -10,3 +10,8 @@ spring:
 logging:
   level:
     org.mybatis: DEBUG
+
+#配置mybatis
+mybatis:
+  type-aliases-package: com.yj.pojo
+  mapper-locations: classpath:mapper/*.xml

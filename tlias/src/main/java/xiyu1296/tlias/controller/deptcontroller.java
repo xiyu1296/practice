@@ -1,13 +1,11 @@
 package xiyu1296.tlias.controller;
 
-import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import xiyu1296.tlias.pojo.Dept;
 import xiyu1296.tlias.pojo.Result;
-import xiyu1296.tlias.service.deptservice;
-import xiyu1296.tlias.service.deptserviceimp;
+import xiyu1296.tlias.service.imp.deptserviceimp;
 
 @Slf4j
 @RequestMapping("/depts")

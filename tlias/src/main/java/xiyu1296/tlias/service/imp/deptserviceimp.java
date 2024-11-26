@@ -1,16 +1,16 @@
-package xiyu1296.tlias.service;
+package xiyu1296.tlias.service.imp;
 
-import jakarta.websocket.OnOpen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xiyu1296.tlias.mapper.deptmapper;
 import xiyu1296.tlias.pojo.Dept;
+import xiyu1296.tlias.service.deptservice;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class deptserviceimp implements  deptservice{
+public class deptserviceimp implements deptservice {
 
     @Autowired
     private deptmapper Deptmapper;
