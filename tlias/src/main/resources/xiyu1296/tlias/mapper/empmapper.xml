@@ -3,6 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xiyu1296.tlias.mapper.empmapper">
+    <insert id="insert">
+        insert into emp
+            (username,name,gender,image,dept_id,entrydate,job,create_time,update_time)
+        values
+            (#{username},#{name},#{gender},#{image},#{deptId},#{entrydate},#{job},#{createTime},#{updateTime})
+    </insert>
+    <delete id="delete">
+        delete from emp where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 
     <!-- 条件查询 -->
     <select id="pageselect" resultType="xiyu1296.tlias.pojo.Emp">

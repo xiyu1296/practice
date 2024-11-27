@@ -27,4 +27,16 @@ public class empserviceimp implements empservice {
         return new PageBean(pg.getTotal(),pg.getResult());
 
     }
+
+    @Override
+    public void delete(List<Integer> ids) {
+        Empmapper.delete(ids);
+    }
+
+    @Override
+    public void save(Emp emp) {
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+        Empmapper.insert(emp);
+    }
 }

@@ -3,16 +3,15 @@ package xiyu1296.tlias.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import xiyu1296.tlias.pojo.Emp;
 import xiyu1296.tlias.pojo.PageBean;
 import xiyu1296.tlias.pojo.Result;
 import xiyu1296.tlias.service.imp.empserviceimp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @RequestMapping("/emps")
@@ -33,4 +32,19 @@ public class empcontroller {
         return Result.success(pageBean);
 
     }
+
+    @DeleteMapping("/{ids}")
+    public Result delete(@PathVariable List<Integer> ids){
+        log.info("批量删除,ids:{}",ids);
+        empservice.delete(ids);
+        return Result.success();
+    }
+
+    @PostMapping
+    public Result save(@RequestBody Emp emp){
+        log.info("新增员工,员工信息:{}",emp);
+        empservice.save(emp);
+        return Result.success();
+    }
+
 }

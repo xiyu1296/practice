@@ -10,4 +10,8 @@ import java.util.List;
 public interface empmapper {
 
     List<Emp> pageselect(String name, Short gender, LocalDateTime starttime,LocalDateTime endtime);
+
+    void delete(List<Integer> ids);
+
+    void insert(Emp emp);
 }
