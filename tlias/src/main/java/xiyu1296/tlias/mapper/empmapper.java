@@ -14,4 +14,8 @@ public interface empmapper {
     void delete(List<Integer> ids);
 
     void insert(Emp emp);
+
+    Emp getById(Integer id);
+
+    void update(Emp emp);
 }

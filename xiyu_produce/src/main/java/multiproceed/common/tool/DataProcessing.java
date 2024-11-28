@@ -1,9 +1,9 @@
-package multiproceed.impl;
+package multiproceed.common.tool;
 
-import multiproceed.abstacts_class.realclass.Admin;
-import multiproceed.abstacts_class.realclass.Browser;
-import multiproceed.abstacts_class.realclass.Operator;
-import multiproceed.abstacts_class.usr.User;
+import multiproceed.common.users.Admin;
+import multiproceed.common.users.Browser;
+import multiproceed.common.users.Operator;
+import multiproceed.common.users.User;
 
 import java.sql.Timestamp;
 import java.util.Enumeration;

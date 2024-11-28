@@ -1,0 +1,36 @@
+JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.4.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, comp InfoLable:::p::p, space ::254:x}, seq t {space :p:18:p, par l {seq {comp IdLable:::p::p, space u:::p, comp IdInput::::223:x}, seq {comp WarningLable::::187:x, space :::p, comp Start:::p::p}}, space :p:19:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp InfoLable:::p::p, space :p:30:p, par b {comp IdLable::b:p::p, comp IdInput::b:p::p}, space ::50:x, par b {comp Start::b:p::p, comp WarningLable::b:p::p}, space :p:16:p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 2
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "InfoLable"
+				"text": "下载文件"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "IdInput"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "IdLable"
+				"text": "文件ID"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Start"
+				"text": "下载"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "StartAction", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "WarningLable"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 310, 210 )
+		} )
+	}
+}

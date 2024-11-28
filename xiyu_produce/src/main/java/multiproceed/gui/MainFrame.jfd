@@ -1,0 +1,107 @@
+JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.4.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :::p, par l:::p {comp helloLable:::p::p, seq l {comp account:::p::p, space :::p, comp accountInfo:::p:78:p}, seq l {comp role:::p::p, space :::p, comp roleInfo:::p:78:p}}, space ::418:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp helloLable:::p::p, space s:::p, par b {comp account::b:p::p, comp accountInfo::b:p::p}, space :::p, par b {comp role::b:p::p, comp roleInfo::b:p::p}, space ::272:x}}"
+				} ) {
+					name: "contentPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "helloLable"
+						"text": "欢迎使用档案管理系统"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "account"
+						"text": "账号："
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "role"
+						"text": "类别："
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "accountInfo"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "roleInfo"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": "用户管理"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "addUser"
+						"text": "新增用户"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "deleteUser"
+						"text": "删除用户"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "changeUserInfo"
+						"text": "修改用户"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "queryUser"
+						"text": "查询用户"
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu2"
+					"text": "档案管理"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "showFileList"
+						"text": "档案列表"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showFileListAction", false ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "uploadFile"
+						"text": "上传档案"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "uploadFileAction", false ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "downloadFile"
+						"text": "下载档案"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "downloadFileAction", false ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu3"
+					"text": "我的账号"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "changeSelfPassword"
+						"text": "修改密码"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "changeSelfPasswordAction", false ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "logout"
+						"text": "注销登录"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutAction", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "exitSystem"
+						"text": "退出系统"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitSystemAction", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 570, 430 )
+		} )
+	}
+}

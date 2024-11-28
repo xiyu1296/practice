@@ -1,0 +1,78 @@
+JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.4.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) ) {
+					name: "titlePanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "登录档案管理系统"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "North"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "contentPanel"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq {space :p:63:p, par l:::p {comp accountLable::::35:x, comp passwordLable::::35:x}, space :::x, par l:::p {comp passwordInput::::127:x, comp accountInput::::127:x}, space :p:68:p}}"
+						"$verticalGroup": "par l {seq l {space :::p, par b {comp accountLable::b:p:30:p, comp accountInput::b:p::p}, space s:::p, par b {comp passwordLable::b:p:30:p, comp passwordInput::b:p::p}, space ::10:x}}"
+					} ) {
+						name: "inputPanel"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "accountLable"
+							"text": "账号"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "accountInput"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "passwordLable"
+							"text": "密码"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "passwordInput"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0:1.0, 80"
+					"$rowSpecs": "0"
+					"$hGap": 5
+					"$vGap": 5
+				} ) {
+					name: "buttonBar"
+					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "infoLable"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "loginButton"
+						"text": "登录"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "loginButtonAction", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 0
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 45, 30 )
+			"size": new java.awt.Dimension( 315, 210 )
+		} )
+	}
+}
