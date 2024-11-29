@@ -51,5 +51,9 @@ public class empserviceimp implements empservice {
         Empmapper.update(emp);
     }
 
+    @Override
+    public Emp getByUsernameAndPassword(String username, String password) {
+        return Empmapper.getByUsernameAndPassword(username,password);
+    }
 
 }

@@ -18,4 +18,6 @@ public interface empmapper {
     Emp getById(Integer id);
 
     void update(Emp emp);
+
+    Emp getByUsernameAndPassword(String username, String password);
 }

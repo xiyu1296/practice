@@ -17,4 +17,6 @@ public interface empservice {
     Emp getById(Integer id);
 
     void update(Emp emp);
+
+    Emp getByUsernameAndPassword(String username, String password);
 }

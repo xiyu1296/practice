@@ -47,4 +47,8 @@
         select * from emp where id = #{id}
     </select>
 
+    <select id="getByUsernameAndPassword" resultType="xiyu1296.tlias.pojo.Emp">
+        select * from emp where username = #{username} and password = #{password}
+    </select>
+
 </mapper>
