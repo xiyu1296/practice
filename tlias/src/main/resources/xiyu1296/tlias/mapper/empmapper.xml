@@ -31,6 +31,9 @@
             #{id}
         </foreach>
     </delete>
+    <delete id="deletebydeptid">
+        delete from emp where dept_id = #{id}
+    </delete>
 
     <!-- 条件查询 -->
     <select id="pageselect" resultType="xiyu1296.tlias.pojo.Emp">

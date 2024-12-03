@@ -56,4 +56,9 @@ public class empserviceimp implements empservice {
         return Empmapper.getByUsernameAndPassword(username,password);
     }
 
+    @Override
+    public void deletebydeptid(Integer id) {
+        Empmapper.deletebydeptid(id);
+    }
+
 }
