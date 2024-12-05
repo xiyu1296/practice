@@ -5,6 +5,7 @@ import multiproceed.common.users.Browser;
 import multiproceed.common.users.Operator;
 import multiproceed.common.users.User;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;

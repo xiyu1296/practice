@@ -9,14 +9,18 @@ import multiproceed.common.tool.DataProcessing;
 
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 
 /**
  * @author unknown
  */
 public class UploadFile extends JFrame {
-    String upload_path = ".\\upload\\";
-    String download_path = ".\\download\\";
+    String upload_path = ".\\upload";
+    String download_path = ".\\download";
     private final String name;
 
     public UploadFile(String name) {
@@ -34,17 +38,14 @@ public class UploadFile extends JFrame {
         if (!DataProcessing.addDocument(filename, name, new Timestamp(System.currentTimeMillis()), description)) {
             return;
         }
+        //将dir文件复制到upload路径下
+        Path source = Paths.get(dir);
+        Path target = Paths.get(upload_path, filename);
         try {
-            BufferedInputStream infile = new BufferedInputStream(new FileInputStream(temp_file));
-            BufferedOutputStream targetfile = new BufferedOutputStream(new FileOutputStream(upload_path + filename));
-            while (true) {
-                int byteRead = infile.read(buffer);
-                if (byteRead == -1) break;
-                targetfile.write(buffer, 0, byteRead);
-            }
-            infile.close();
-            targetfile.close();
+            // 复制文件
+            Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
+            e.printStackTrace();
             WarningLable.setText("上传失败");
             return;
         }

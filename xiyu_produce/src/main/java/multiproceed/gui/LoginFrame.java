@@ -4,7 +4,7 @@
 
 package multiproceed.gui;
 
-
+import multiproceed.common.socket.Client;
 import multiproceed.common.tool.DataProcessing;
 import multiproceed.common.users.User;
 
@@ -17,6 +17,12 @@ import java.awt.*;
  */
 public class LoginFrame extends JFrame {
     public LoginFrame() {
+        try {
+            Client.ConnectToServer();
+            Client.GetStreams();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initComponents();
     }
 
@@ -25,17 +31,21 @@ public class LoginFrame extends JFrame {
         account = accountInput.getText();
         password = passwordInput.getText();
         User user = DataProcessing.checkPassword(account, password);
-        if (user == null) {
-            infoLable.setText("密码错误，请重试");
-        } else {
-            infoLable.setText("登录成功");
-            this.dispose();
-            try {
+        try {
+            if (user == null) {
+                infoLable.setText("密码错误，请重试");
+                Client.SendMessage("FAILED LOGIN: " + account);
+                Client.ReceiveMessage();
+            } else {
+                infoLable.setText("登录成功");
+                Client.SendMessage("LOGIN: " + user.getName());
+                Client.ReceiveMessage();
+                this.dispose();
                 JFrame mainFrame = new MainFrame(user);
                 mainFrame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

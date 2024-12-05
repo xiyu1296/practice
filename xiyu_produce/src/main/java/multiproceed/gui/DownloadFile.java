@@ -5,18 +5,24 @@
 package multiproceed.gui;
 
 
+
+
 import multiproceed.common.tool.DataProcessing;
 import multiproceed.common.tool.Document;
 
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * @author unknown
  */
 public class DownloadFile extends JFrame {
-    String upload_path = ".\\upload\\";
-    String download_path = ".\\download\\";
+    String upload_path = ".\\upload";
+    String download_path = ".\\download";
 
     public DownloadFile() {
         initComponents();
@@ -30,20 +36,16 @@ public class DownloadFile extends JFrame {
             WarningLable.setText("下载失败：未找到该文件");
             return;
         }
-        File temp_file = new File(upload_path + doc.getFilename());
-        String file_name = temp_file.getName();
+        String file_name = doc.getFilename();
+
+        Path source = Paths.get(upload_path+"/"+file_name);
+        Path target = Paths.get(download_path,file_name);
         try {
-            BufferedInputStream infile = new BufferedInputStream(new FileInputStream(temp_file));
-            BufferedOutputStream targetfile = new BufferedOutputStream(new FileOutputStream(download_path + file_name));
-            while (true) {
-                int byteRead = infile.read(buffer);
-                if (byteRead == -1) break;
-                targetfile.write(buffer, 0, byteRead);
-            }
-            infile.close();
-            targetfile.close();
+            // 复制文件
+            Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            WarningLable.setText("下载失败");
+            e.printStackTrace();
+            WarningLable.setText("下载失败：文件不存在");
             return;
         }
         WarningLable.setText("下载成功");

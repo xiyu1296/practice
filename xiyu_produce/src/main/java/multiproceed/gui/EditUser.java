@@ -4,7 +4,6 @@
 
 package multiproceed.gui;
 
-
 import multiproceed.common.tool.DataProcessing;
 
 import javax.swing.*;

@@ -4,6 +4,8 @@
 
 package multiproceed.gui;
 
+
+import multiproceed.common.socket.Client;
 import multiproceed.common.users.User;
 
 import javax.swing.*;
@@ -40,12 +42,18 @@ public class MainFrame extends JFrame {
     }
 
     private void exitSystemAction(ActionEvent e) {
+        try {
+            Client.SendMessage("LOGOUT: " + user.getName());
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
         System.exit(0);
     }
 
     private void logoutAction(ActionEvent e) {
         this.dispose();
         try {
+            Client.SendMessage("LOGOUT: " + user.getName());
             JFrame loginFrame = new LoginFrame();
             loginFrame.setVisible(true);
         } catch (Exception err) {
