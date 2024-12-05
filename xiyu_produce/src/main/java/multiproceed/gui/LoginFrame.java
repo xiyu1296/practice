@@ -4,7 +4,7 @@
 
 package multiproceed.gui;
 
-import  multiproceed.common.*;
+
 import multiproceed.common.tool.DataProcessing;
 import multiproceed.common.users.User;
 

@@ -50,8 +50,6 @@ public class Operator extends User {
     public void uploadFile() {
         System.out.println("========上传文件========");
         Scanner sc = new Scanner(System.in);
-        System.out.print("输入文件ID: ");
-        String ID = sc.next();
         System.out.print("输入文件路径: ");
         String dir = sc.next();
         System.out.print("输入文件描述: ");
@@ -60,7 +58,7 @@ public class Operator extends User {
         byte[] buffer = new byte[1024];
         File temp_file = new File(dir);
         String filename = temp_file.getName();
-        if (!DataProcessing.addDocument(ID, filename, getName(), new Timestamp(System.currentTimeMillis()), description)) {
+        if (!DataProcessing.addDocument(filename, getName(), new Timestamp(System.currentTimeMillis()), description)) {
             System.out.println("上传失败：文件ID重复");
             return;
         }

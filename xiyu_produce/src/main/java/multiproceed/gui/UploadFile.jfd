@@ -4,21 +4,14 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, comp InfoLable:::p::p, space ::254:x}, seq l {space :p:18:p, par l {seq {comp WarningLable::::187:x, space :::p, comp Start:::p::p, space :p:19:p}, seq t {par t {seq l {comp IdLable:::p::p, space :::p, comp IdInput::::224:x}, seq t {space :0:13:x, par l {seq {comp DirLable:::p::p, space :::p, comp DirInput:::p:223:p}, seq {comp DiscriptionLable:::p::p, space :::p, comp DiscriptionInput:::p:223:p}}}}, space :p:24:p}}}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp InfoLable:::p::p, space u:::p, par b {comp IdLable::b:p::p, comp IdInput::b:p::p}, space s:::p, par b {comp DirInput::b:p::p, comp DirLable::b:p::p}, space ::17:x, par b {comp DiscriptionInput::b:p::p, comp DiscriptionLable::b:p::p}, space s:::p, par b {comp Start::b:p::p, comp WarningLable::b:p::p}, space :p:16:p}}"
+			"$horizontalGroup": "par l {seq {space :::p, comp InfoLable:::p::p, space ::254:x}, seq l {space :p:18:p, comp WarningLable::::187:x, space :p:103:p}, seq t {space ::28:x, par l {seq l {space :180:180:p, comp Start:::p::p}, seq t {par l {seq l {comp DirLable:::p::p, space :::p, comp DirInput:::p:223:p}, seq l {comp DiscriptionLable:::p::p, space :::p, comp DiscriptionInput:::p:223:p}}, space :p:5:p}}, space :p:22:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp InfoLable:::p::p, space :::p, par b {comp DirInput::b:p::p, comp DirLable::b:p::p}, space :::x, par b {comp DiscriptionInput::b:p::p, comp DiscriptionLable::b:p::p}, space s:::p, comp Start:::p::p, space :p:24:p, comp WarningLable:::p::p, space :p:46:p}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 2
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "InfoLable"
 				"text": "上传文件"
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "IdInput"
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "IdLable"
-				"text": "文件ID"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "Start"
@@ -43,7 +36,7 @@ new FormModel {
 				name: "DiscriptionInput"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 310, 255 )
+			"size": new java.awt.Dimension( 310, 205 )
 			"location": new java.awt.Point( 0, 0 )
 		} )
 	}

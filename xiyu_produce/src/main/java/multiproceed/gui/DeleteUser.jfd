@@ -1,0 +1,36 @@
+JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.4.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {par l {seq {space :::p, comp FormTitle:::p::p}, seq l {space :p:38:p, par l {seq {comp Message:::p:177:p, space u:::p, comp Submit:::p::p}, seq {comp Username:::p::p, space :::p, comp InputUsername:::p:195:p}}}}, space ::23:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp FormTitle:::p::p, space s:::p, par b {comp InputUsername::b:p::p, comp Username::b:p::p}, space s:::p, par l {comp Message:::p:27:p, comp Submit:::p::p}, space ::20:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 2
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "FormTitle"
+				"text": "删除用户"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Username"
+				"text": "用户名"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "InputUsername"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Submit"
+				"text": "删除"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "handleSubmit", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Message"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 330, 170 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

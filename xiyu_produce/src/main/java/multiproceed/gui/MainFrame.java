@@ -4,7 +4,6 @@
 
 package multiproceed.gui;
 
-import  multiproceed.common.*;
 import multiproceed.common.users.User;
 
 import javax.swing.*;
@@ -90,6 +89,42 @@ public class MainFrame extends JFrame {
         }
     }
 
+    private void addUserAction() {
+        try {
+            JFrame uploadFile = new CreateUser();
+            uploadFile.setVisible(true);
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+    }
+
+    private void changeUserInfoAction() {
+        try {
+            JFrame uploadFile = new EditUser();
+            uploadFile.setVisible(true);
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+    }
+
+    private void deleteUserAction() {
+        try {
+            JFrame uploadFile = new DeleteUser();
+            uploadFile.setVisible(true);
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+    }
+
+    private void queryUserAction() {
+        try {
+            JFrame uploadFile = new QueryUser();
+            uploadFile.setVisible(true);
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
@@ -128,18 +163,22 @@ public class MainFrame extends JFrame {
 
                 //---- addUser ----
                 addUser.setText("\u65b0\u589e\u7528\u6237");
+                addUser.addActionListener(e -> addUserAction());
                 menu1.add(addUser);
 
                 //---- deleteUser ----
                 deleteUser.setText("\u5220\u9664\u7528\u6237");
+                deleteUser.addActionListener(e -> deleteUserAction());
                 menu1.add(deleteUser);
 
                 //---- changeUserInfo ----
                 changeUserInfo.setText("\u4fee\u6539\u7528\u6237");
+                changeUserInfo.addActionListener(e -> changeUserInfoAction());
                 menu1.add(changeUserInfo);
 
                 //---- queryUser ----
                 queryUser.setText("\u67e5\u8be2\u7528\u6237");
+                queryUser.addActionListener(e -> queryUserAction());
                 menu1.add(queryUser);
             }
             menuBar1.add(menu1);
@@ -208,35 +247,35 @@ public class MainFrame extends JFrame {
                 GroupLayout contentPanelLayout = new GroupLayout(contentPanel);
                 contentPanel.setLayout(contentPanelLayout);
                 contentPanelLayout.setHorizontalGroup(
-                    contentPanelLayout.createParallelGroup()
-                        .addGroup(contentPanelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(helloLable)
+                        contentPanelLayout.createParallelGroup()
                                 .addGroup(contentPanelLayout.createSequentialGroup()
-                                    .addComponent(account)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(accountInfo, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contentPanelLayout.createSequentialGroup()
-                                    .addComponent(role)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(roleInfo, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(418, Short.MAX_VALUE))
+                                        .addContainerGap()
+                                        .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(helloLable)
+                                                .addGroup(contentPanelLayout.createSequentialGroup()
+                                                        .addComponent(account)
+                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(accountInfo, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(contentPanelLayout.createSequentialGroup()
+                                                        .addComponent(role)
+                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(roleInfo, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
+                                        .addContainerGap(418, Short.MAX_VALUE))
                 );
                 contentPanelLayout.setVerticalGroup(
-                    contentPanelLayout.createParallelGroup()
-                        .addGroup(contentPanelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(helloLable)
-                            .addGap(18, 18, 18)
-                            .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(account)
-                                .addComponent(accountInfo))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(role)
-                                .addComponent(roleInfo))
-                            .addContainerGap(272, Short.MAX_VALUE))
+                        contentPanelLayout.createParallelGroup()
+                                .addGroup(contentPanelLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(helloLable)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                                .addComponent(account)
+                                                .addComponent(accountInfo))
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                                .addComponent(role)
+                                                .addComponent(roleInfo))
+                                        .addContainerGap(272, Short.MAX_VALUE))
                 );
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);

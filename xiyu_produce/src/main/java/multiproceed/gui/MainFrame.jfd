@@ -46,18 +46,22 @@ new FormModel {
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "addUser"
 						"text": "新增用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "addUserAction", false ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "deleteUser"
 						"text": "删除用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteUserAction", false ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "changeUserInfo"
 						"text": "修改用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "changeUserInfoAction", false ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "queryUser"
 						"text": "查询用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "queryUserAction", false ) )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {

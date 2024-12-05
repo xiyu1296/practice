@@ -3,13 +3,13 @@ package multiproceed.common.tool;
 import java.sql.Timestamp;
 
 public class Document {
-    private String ID;
+    private int ID;
     private String filename;
     private String creator;
     private Timestamp timestamp;
     private String description;
 
-    public Document(String ID, String filename, String creator, Timestamp timestamp, String description) {
+    public Document(int ID, String filename, String creator, Timestamp timestamp, String description) {
         this.ID = ID;
         this.filename = filename;
         this.creator = creator;
@@ -17,11 +17,11 @@ public class Document {
         this.description = description;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String val) {
+    public void setID(int val) {
         ID = val;
     }
 

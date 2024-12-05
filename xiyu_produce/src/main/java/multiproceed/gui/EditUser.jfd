@@ -1,0 +1,56 @@
+JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.4.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {par t {par l {seq {space :::p, comp FormTitle:::p::p}, seq l {space :p:38:p, comp Username:::p::p, space :::p, comp InputUsername:::p:195:p}}, seq {space :50:50:p, par t {comp Password:::p::p, comp Role:::p::p}, space :::p, par l:::p {comp InputRole::::195:x, comp InputPassword::::195:x}}}, space ::53:x}, seq t {space :0:47:x, comp Message:::p:177:p, space :::p, comp Submit:::p::p, space :p:20:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp FormTitle:::p::p, space s:::p, par b {comp InputUsername::b:p::p, comp Username::b:p::p}, space u:::p, par b {comp InputPassword::b:p::p, comp Password::b:p::p}, space u:::p, par b {comp InputRole::b:p::p, comp Role::b:p::p}, space s:::p, par b {comp Submit::b:p::p, comp Message::b:p::p}, space ::16:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 2
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "FormTitle"
+				"text": "修改用户"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Username"
+				"text": "用户名"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Password"
+				"text": "密码"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Role"
+				"text": "权限"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "InputUsername"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "InputPassword"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "InputRole"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "admin"
+					addElement( "admin" )
+					addElement( "operator" )
+					addElement( "browser" )
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Submit"
+				"text": "创建"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "handleSubmit", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Message"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 330, 250 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}
