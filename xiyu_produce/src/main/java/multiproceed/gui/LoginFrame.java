@@ -11,22 +11,18 @@ import multiproceed.common.users.User;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author unknown
  */
 public class LoginFrame extends JFrame {
-    public LoginFrame() {
-        try {
-            Client.ConnectToServer();
-            Client.GetStreams();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        initComponents();
+    public LoginFrame(Client client) {
+
+        initComponents(client);
     }
 
-    private void loginButtonAction() {
+    private void loginButtonAction(Client client) {
         String account, password;
         account = accountInput.getText();
         password = passwordInput.getText();
@@ -34,14 +30,14 @@ public class LoginFrame extends JFrame {
         try {
             if (user == null) {
                 infoLable.setText("密码错误，请重试");
-                Client.SendMessage("FAILED LOGIN: " + account);
-                Client.ReceiveMessage();
+                client.SendMessage("FAILED LOGIN: " + account);
+                client.ReceiveMessage();
             } else {
                 infoLable.setText("登录成功");
-                Client.SendMessage("LOGIN: " + user.getName());
-                Client.ReceiveMessage();
-                this.dispose();
-                JFrame mainFrame = new MainFrame(user);
+                client.SendMessage("LOGIN: " + user.getName());
+                client.ReceiveMessage();
+                JFrame mainFrame = new MainFrame(user,client);
+                this.setVisible(false);
                 mainFrame.setVisible(true);
             }
         } catch (Exception e) {
@@ -49,7 +45,7 @@ public class LoginFrame extends JFrame {
         }
     }
 
-    private void initComponents() {
+    private void initComponents(Client client) {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         dialogPane = new JPanel();
         titlePanel = new JPanel();
@@ -142,7 +138,7 @@ public class LoginFrame extends JFrame {
 
                 //---- loginButton ----
                 loginButton.setText("\u767b\u5f55");
-                loginButton.addActionListener(e -> loginButtonAction());
+                loginButton.addActionListener(e -> loginButtonAction(client));
                 buttonBar.add(loginButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 0), 0, 0));

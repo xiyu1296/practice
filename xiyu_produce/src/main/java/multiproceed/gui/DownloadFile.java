@@ -5,6 +5,7 @@
 package multiproceed.gui;
 
 
+import multiproceed.common.socket.Client;
 import multiproceed.common.tool.DataProcessing;
 import multiproceed.common.tool.Document;
 
@@ -21,8 +22,9 @@ import java.nio.file.StandardCopyOption;
 public class DownloadFile extends JFrame {
     String upload_path = ".\\upload";
     String download_path = ".\\download";
-
-    public DownloadFile() {
+    Client client;
+    public DownloadFile(Client client) {
+        this.client = client;
         initComponents();
     }
 
@@ -45,6 +47,11 @@ public class DownloadFile extends JFrame {
             e.printStackTrace();
             WarningLable.setText("下载失败：文件不存在");
             return;
+        }
+        try {
+            client.SendMessage("download "+file_name +  " "+ID);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         WarningLable.setText("下载成功");
     }

@@ -234,6 +234,25 @@ public class DataProcessing {
         }
     }
 
+    //根据名字获取文档
+    public static Document searchDocumentbyname(String filename) {
+        try {
+            getConnection();
+            String sql = "SELECT * from file WHERE filename='" + filename + "'";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            int ID = resultSet.getInt("id");
+            String creator = resultSet.getString("creator");
+            Timestamp timestamp = resultSet.getTimestamp("timestamp");
+            String description = resultSet.getString("description");
+            return new Document(ID, filename, creator, timestamp, description);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     // 取得所有文档数据
     public static Enumeration<Document> getAllDocument() {
         try {

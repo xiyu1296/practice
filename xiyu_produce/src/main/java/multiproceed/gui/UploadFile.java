@@ -5,6 +5,7 @@
 package multiproceed.gui;
 
 
+import multiproceed.common.socket.Client;
 import multiproceed.common.tool.DataProcessing;
 
 import javax.swing.*;
@@ -23,8 +24,10 @@ public class UploadFile extends JFrame {
     String upload_path = ".\\upload";
     String download_path = ".\\download";
     private final String name;
+    Client client;
 
-    public UploadFile(String name) {
+    public UploadFile(String name,Client client)  {
+        this.client = client;
         this.name = name;
         initComponents();
     }
@@ -36,20 +39,31 @@ public class UploadFile extends JFrame {
         byte[] buffer = new byte[1024];
         File temp_file = new File(dir);
         String filename = temp_file.getName();
-        if (!DataProcessing.addDocument(filename, name, new Timestamp(System.currentTimeMillis()), description)) {
+        if(DataProcessing.searchDocumentbyname(filename) != null){
+            WarningLable.setText("上传失败：文件已存在");
             return;
         }
-        //将dir文件复制到upload路径下
-        Path source = Paths.get(dir);
-        Path target = Paths.get(upload_path, filename);
         try {
-            // 复制文件
-            Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            e.printStackTrace();
-            WarningLable.setText("上传失败");
-            return;
+            DataProcessing.addDocument(filename, name, new Timestamp(System.currentTimeMillis()), description);
+            //将dir文件复制到upload路径下
+            Path source = Paths.get(dir);
+            Path target = Paths.get(upload_path, filename);
+
+            try {
+                // 复制文件
+                Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                e.printStackTrace();
+                WarningLable.setText("上传失败");
+                return;
+            }
+
+                client.SendMessage("upload " + filename + " " + description + " " );
+
+        } catch (RuntimeException | IOException e) {
+            throw new RuntimeException(e);
         }
+
         WarningLable.setText("上传成功");
     }
 

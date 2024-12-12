@@ -1,21 +1,20 @@
 package trial2;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
-public class SumAndAverageApp {
+public class SumAndAverageApp2 {
     /**
      * 程序的入口点
      * @param args 命令行参数
      */
     public static void main(String[] args) {
         // 使用SwingUtilities在事件调度线程中运行程序
-        SwingUtilities.invokeLater(SumAndAverageApp::createAndShowGUI);
-
+        SwingUtilities.invokeLater(SumAndAverageApp2::createAndShowGUI);
     }
 
     /**
@@ -63,20 +62,11 @@ public class SumAndAverageApp {
         gbc.gridy = 1;
         displayPanel.add(avgField, gbc);
 
-        // 添加输入监听器
-        inputArea.getDocument().addDocumentListener(new DocumentListener() {
+        // 添加计算按钮
+        JButton calculateButton = new JButton("计算");
+        calculateButton.addActionListener(new ActionListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {
-                updateFields(inputArea, sumField, avgField);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                updateFields(inputArea, sumField, avgField);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 updateFields(inputArea, sumField, avgField);
             }
         });
@@ -86,7 +76,11 @@ public class SumAndAverageApp {
         topPanel.add(inputLabel, BorderLayout.WEST);
         topPanel.add(scrollPane, BorderLayout.CENTER);
 
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(calculateButton);
+
         frame.add(topPanel, BorderLayout.NORTH);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.add(displayPanel, BorderLayout.CENTER);
 
         frame.setVisible(true);
@@ -124,7 +118,6 @@ public class SumAndAverageApp {
             avgField.setText(String.valueOf(avg));
         } catch (NumberFormatException ex) {
             sumField.setText("输入包含无效的数字");
-
             avgField.setText("输入包含无效的数字");
         }
     }

@@ -20,9 +20,9 @@ import java.util.Objects;
 public class MainFrame extends JFrame {
     private final User user;
 
-    public MainFrame(User user) {
+    public MainFrame(User user,Client client) {
         this.user = user;
-        initComponents();
+        initComponents(client);
         accountInfo.setText(user.getName());
         roleInfo.setText(user.getRole());
         if (Objects.equals(user.getRole(), "browser")) {
@@ -41,20 +41,20 @@ public class MainFrame extends JFrame {
         }
     }
 
-    private void exitSystemAction(ActionEvent e) {
+    private void exitSystemAction(ActionEvent e,Client client) {
         try {
-            Client.SendMessage("LOGOUT: " + user.getName());
+            client.SendMessage("LOGOUT: " + user.getName());
         } catch (Exception err) {
             err.printStackTrace();
         }
         System.exit(0);
     }
 
-    private void logoutAction(ActionEvent e) {
+    private void logoutAction(ActionEvent e,Client client) {
         this.dispose();
         try {
-            Client.SendMessage("LOGOUT: " + user.getName());
-            JFrame loginFrame = new LoginFrame();
+            client.SendMessage("LOGOUT: " + user.getName());
+            JFrame loginFrame = new LoginFrame(client);
             loginFrame.setVisible(true);
         } catch (Exception err) {
             err.printStackTrace();
@@ -79,18 +79,18 @@ public class MainFrame extends JFrame {
         }
     }
 
-    private void downloadFileAction() {
+    private void downloadFileAction(Client client) {
         try {
-            JFrame downloadFile = new DownloadFile();
+            JFrame downloadFile = new DownloadFile(client);
             downloadFile.setVisible(true);
         } catch (Exception err) {
             err.printStackTrace();
         }
     }
 
-    private void uploadFileAction() {
+    private void uploadFileAction(Client client) {
         try {
-            JFrame uploadFile = new UploadFile(user.getName());
+            JFrame uploadFile = new UploadFile(user.getName(),client);
             uploadFile.setVisible(true);
         } catch (Exception err) {
             err.printStackTrace();
@@ -133,7 +133,7 @@ public class MainFrame extends JFrame {
         }
     }
 
-    private void initComponents() {
+    private void initComponents(Client client) {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
@@ -202,12 +202,12 @@ public class MainFrame extends JFrame {
 
                 //---- uploadFile ----
                 uploadFile.setText("\u4e0a\u4f20\u6863\u6848");
-                uploadFile.addActionListener(e -> uploadFileAction());
+                uploadFile.addActionListener(e -> uploadFileAction(client));
                 menu2.add(uploadFile);
 
                 //---- downloadFile ----
                 downloadFile.setText("\u4e0b\u8f7d\u6863\u6848");
-                downloadFile.addActionListener(e -> downloadFileAction());
+                downloadFile.addActionListener(e -> downloadFileAction(client));
                 menu2.add(downloadFile);
             }
             menuBar1.add(menu2);
@@ -223,12 +223,12 @@ public class MainFrame extends JFrame {
 
                 //---- logout ----
                 logout.setText("\u6ce8\u9500\u767b\u5f55");
-                logout.addActionListener(e -> logoutAction(e));
+                logout.addActionListener(e -> logoutAction(e,client));
                 menu3.add(logout);
 
                 //---- exitSystem ----
                 exitSystem.setText("\u9000\u51fa\u7cfb\u7edf");
-                exitSystem.addActionListener(e -> exitSystemAction(e));
+                exitSystem.addActionListener(e -> exitSystemAction(e,client));
                 menu3.add(exitSystem);
             }
             menuBar1.add(menu3);
