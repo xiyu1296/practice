@@ -45,6 +45,8 @@ public class LoginFrame extends JFrame {
         }
     }
 
+
+
     private void initComponents(Client client) {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         dialogPane = new JPanel();

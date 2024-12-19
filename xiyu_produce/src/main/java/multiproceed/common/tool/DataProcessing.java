@@ -130,7 +130,7 @@ public class DataProcessing {
 
     private static User constructUser(String name, String password, String role) {
         User user;
-        if (role.equalsIgnoreCase("admin")) {
+        if (role.equalsIgnoreCase("administrator")) {
             user = new Admin(name, password, role);
         } else if (role.equalsIgnoreCase("operator")) {
             user = new Operator(name, password, role);
@@ -234,24 +234,30 @@ public class DataProcessing {
         }
     }
 
-    //根据名字获取文档
     public static Document searchDocumentbyname(String filename) {
         try {
             getConnection();
             String sql = "SELECT * from file WHERE filename='" + filename + "'";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            int ID = resultSet.getInt("id");
-            String creator = resultSet.getString("creator");
-            Timestamp timestamp = resultSet.getTimestamp("timestamp");
-            String description = resultSet.getString("description");
-            return new Document(ID, filename, creator, timestamp, description);
+
+            if (resultSet.next()) {
+                int ID = resultSet.getInt("id");
+                String creator = resultSet.getString("creator");
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");
+                String description = resultSet.getString("description");
+                return new Document(ID, filename, creator, timestamp, description);
+            } else {
+                // 没有找到匹配的记录
+                return null;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
+    //根据名字获取文档
+
 
     // 取得所有文档数据
     public static Enumeration<Document> getAllDocument() {

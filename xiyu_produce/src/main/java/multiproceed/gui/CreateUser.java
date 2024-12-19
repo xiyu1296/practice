@@ -56,10 +56,10 @@ public class CreateUser extends JFrame {
         Role.setText("\u6743\u9650");
 
         //---- InputRole ----
-        InputRole.setModel(new DefaultComboBoxModel<>(new String[]{
-                "admin",
-                "operator",
-                "browser"
+        InputRole.setModel(new DefaultComboBoxModel<>(new String[] {
+            "administrator",
+            "operator",
+            "browser"
         }));
 
         //---- Submit ----
@@ -69,57 +69,57 @@ public class CreateUser extends JFrame {
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-                contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                        .addGroup(contentPaneLayout.createParallelGroup()
-                                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                                        .addContainerGap()
-                                                        .addComponent(FormTitle))
-                                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                                        .addGap(38, 38, 38)
-                                                        .addComponent(Username)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(InputUsername, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                                .addGap(50, 50, 50)
-                                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(Password)
-                                                        .addComponent(Role))
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(InputRole, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                                        .addComponent(InputPassword, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))))
-                                .addContainerGap(53, Short.MAX_VALUE))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                                .addGap(0, 47, Short.MAX_VALUE)
-                                .addComponent(Message, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addGroup(contentPaneLayout.createParallelGroup()
+                            .addGroup(contentPaneLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(FormTitle))
+                            .addGroup(contentPaneLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(Username)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Submit)
-                                .addGap(20, 20, 20))
+                                .addComponent(InputUsername, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(Password)
+                                .addComponent(Role))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(InputRole, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                .addComponent(InputPassword, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))))
+                    .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addGap(0, 47, Short.MAX_VALUE)
+                    .addComponent(Message, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Submit)
+                    .addGap(20, 20, 20))
         );
         contentPaneLayout.setVerticalGroup(
-                contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(FormTitle)
-                                .addGap(18, 18, 18)
-                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(InputUsername, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Username))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(InputPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Password))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(InputRole, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Role))
-                                .addGap(18, 18, 18)
-                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(Submit)
-                                        .addComponent(Message))
-                                .addContainerGap(16, Short.MAX_VALUE))
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(FormTitle)
+                    .addGap(18, 18, 18)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(InputUsername, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Username))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(InputPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Password))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(InputRole, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Role))
+                    .addGap(18, 18, 18)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(Submit)
+                        .addComponent(Message))
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());

@@ -33,12 +33,11 @@ public class UploadFile extends JFrame {
     }
 
     private void StartAction() {
-        String dir = DirInput.getText();
+        File selectedFile = DirInput.getSelectedFile();
         String description = DiscriptionInput.getText();
 
         byte[] buffer = new byte[1024];
-        File temp_file = new File(dir);
-        String filename = temp_file.getName();
+        String filename = selectedFile.getName();
         if(DataProcessing.searchDocumentbyname(filename) != null){
             WarningLable.setText("上传失败：文件已存在");
             return;
@@ -46,7 +45,7 @@ public class UploadFile extends JFrame {
         try {
             DataProcessing.addDocument(filename, name, new Timestamp(System.currentTimeMillis()), description);
             //将dir文件复制到upload路径下
-            Path source = Paths.get(dir);
+            Path source = Paths.get(selectedFile.getAbsolutePath());
             Path target = Paths.get(upload_path, filename);
 
             try {
@@ -73,7 +72,7 @@ public class UploadFile extends JFrame {
         Start = new JButton();
         WarningLable = new JLabel();
         DirLable = new JLabel();
-        DirInput = new JTextField();
+        DirInput = new JFileChooser();
         DiscriptionLable = new JLabel();
         DiscriptionInput = new JTextField();
 
@@ -99,50 +98,47 @@ public class UploadFile extends JFrame {
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(InfoLable)
-                    .addContainerGap(254, Short.MAX_VALUE))
-                .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(18, 18, 18)
-                    .addComponent(WarningLable, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addGap(103, 103, 103))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(28, Short.MAX_VALUE)
+                    .addComponent(DiscriptionLable)
+                    .addGap(18, 18, 18)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(WarningLable, GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                        .addComponent(DiscriptionInput, GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                    .addComponent(Start)
+                    .addGap(7, 7, 7))
+                .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(180, 180, 180)
-                            .addComponent(Start))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(DirLable)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(DirInput, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(DiscriptionLable)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(DiscriptionInput, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE)))
-                            .addGap(5, 5, 5)))
-                    .addGap(22, 22, 22))
+                            .addContainerGap()
+                            .addComponent(InfoLable))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(DirLable)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(DirInput, GroupLayout.PREFERRED_SIZE, 564, GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(21, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(InfoLable)
+                    .addGap(18, 18, 18)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(DirLable)
+                            .addGap(0, 285, Short.MAX_VALUE))
+                        .addComponent(DirInput, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(DirInput, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DirLable))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(DiscriptionInput, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DiscriptionLable))
-                    .addGap(18, 18, 18)
-                    .addComponent(Start)
-                    .addGap(24, 24, 24)
-                    .addComponent(WarningLable)
-                    .addGap(46, 46, 46))
+                        .addComponent(DiscriptionLable)
+                        .addComponent(DiscriptionInput, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGap(35, 35, 35)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(Start)
+                        .addComponent(WarningLable, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(27, 27, 27))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -154,7 +150,7 @@ public class UploadFile extends JFrame {
     private JButton Start;
     private JLabel WarningLable;
     private JLabel DirLable;
-    private JTextField DirInput;
+    private JFileChooser DirInput;
     private JLabel DiscriptionLable;
     private JTextField DiscriptionInput;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on

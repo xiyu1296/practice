@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.4.1" encoding: "UTF-8"
+JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.3" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, comp InfoLable:::p::p, space ::254:x}, seq l {space :p:18:p, comp WarningLable::::187:x, space :p:103:p}, seq t {space ::28:x, par l {seq l {space :180:180:p, comp Start:::p::p}, seq t {par l {seq l {comp DirLable:::p::p, space :::p, comp DirInput:::p:223:p}, seq l {comp DiscriptionLable:::p::p, space :::p, comp DiscriptionInput:::p:223:p}}, space :p:5:p}}, space :p:22:p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp InfoLable:::p::p, space :::p, par b {comp DirInput::b:p::p, comp DirLable::b:p::p}, space :::x, par b {comp DiscriptionInput::b:p::p, comp DiscriptionLable::b:p::p}, space s:::p, comp Start:::p::p, space :p:24:p, comp WarningLable:::p::p, space :p:46:p}}"
+			"$horizontalGroup": "par l {seq {space :p:18:p, comp DiscriptionLable:::p::p, space s:::p, par l:::p {comp WarningLable::::323:x, comp DiscriptionInput::::323:x}, space ::165:x, comp Start:::p::p, space :p:7:p}, seq {par l {seq {space :::p, comp InfoLable:::p::p}, seq l {space :p:12:p, comp DirLable:::p::p, space u:::p, comp DirInput:::p:564:p}}, space ::21:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp InfoLable:::p::p, space s:::p, par l {seq {comp DirLable:::p::p, space :0:285:x}, comp DirInput::::302:x}, space :::p, par b {comp DiscriptionLable::b:p::p, comp DiscriptionInput::b:p::p}, space :p:35:p, par l {comp Start:::p::p, comp WarningLable:::::x}, space :p:27:p}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 2
@@ -25,7 +25,7 @@ new FormModel {
 				name: "DirLable"
 				"text": "路径"
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
+			add( new FormComponent( "javax.swing.JFileChooser" ) {
 				name: "DirInput"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -36,8 +36,8 @@ new FormModel {
 				name: "DiscriptionInput"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 310, 205 )
-			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 635, 510 )
+			"location": new java.awt.Point( 95, 5 )
 		} )
 	}
 }
